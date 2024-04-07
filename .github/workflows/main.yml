@@ -1,12 +1,14 @@
 # ワークフロー名
 # 参考:https://qiita.com/cardene/items/67d31f13d27865a12ecf
-name: housework_bot
+name: clinicalTrainingLine_bot
 on:
   schedule:
     # 定期実行する時間・・・①
     # 日本時間 -9時間　で計算
+    #22:20 = 7:20am
+    #1-5=毎週月曜～金曜
     #分 時 日 月 曜日
-    - cron: '0 22 * * *'
+    - cron: '20 22 * * 1-5'
 
 jobs:
   build:
@@ -24,9 +26,10 @@ jobs:
         run: |
           # pip更新
           python -m pip install --upgrade pip
+          pip install requests
           # 必要なパッケージインストール・・・②
 
       - name: Run script
         run: |
           # 定期実行するファイルを指定。・・・③
-          python 定期実行するファイル
+          python clinicalTrainingBot.py
