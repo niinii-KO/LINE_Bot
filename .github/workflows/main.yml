@@ -2,6 +2,7 @@
 # 参考:https://qiita.com/cardene/items/67d31f13d27865a12ecf
 name: clinicalTrainingLine_bot
 on:
+  push:
   schedule:
     # 定期実行する時間・・・①
     # 日本時間 -9時間　で計算
@@ -9,7 +10,9 @@ on:
     #1-5=毎週月曜～金曜
     #分 時 日 月 曜日
     - cron: '20 22 * * 1-5'
-
+env:
+  LINE_NOTIFY_TOKEN : ${{secrets.LINE_NOTIFY_TOKEN}}
+  
 jobs:
   build:
     # Ubuntuの最新版環境内で処理を実行することを指定
