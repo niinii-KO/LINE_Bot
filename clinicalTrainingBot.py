@@ -3,7 +3,7 @@ import requests
 
 line_notify_token = LINE_NOTIFY_TOKEN
 line_notify_api = 'https://notify-api.line.me/api/notify'
-message = ""
+message = "コケコッコー"
 
 def main(message):
     print('送信メッセージ：' + message)
